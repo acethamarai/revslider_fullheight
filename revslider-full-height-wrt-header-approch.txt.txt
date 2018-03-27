@@ -1,0 +1,16 @@
+// listen for when the slider initially loads
+revapi2.bind('revolution.slide.onloaded', function() {
+//console.log('Slider Loaded');
+var screenSize = jQuery(window).height(), layout;
+// get number of total slides in slider
+var totalSlides = revapi2.revmaxslide();
+var slideHeight = revapi2.height();
+// Find Header Height blah blah... & apply.
+var headerHeight = jQuery("#header").height();
+var newHeight=screenSize-headerHeight;
+var sliderSettings = revapi2.data('opt') || revapi2[0].opt;
+sliderSettings.height = newHeight;
+sliderSettings.conh = newHeight;
+sliderSettings.ulh = newHeight;
+sliderSettings.gridheight[0] = newHeight;
+});
